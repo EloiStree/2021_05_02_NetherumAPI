@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.eloistree.netheriumaspackage",                              
+  "displayName": "Netherium Package",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "This package is a mirror of the netherium project but usable as a git unity package.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2021_05_02_NetherumAPI.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 
