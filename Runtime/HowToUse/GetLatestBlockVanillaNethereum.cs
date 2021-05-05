@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Nethereum.Contracts;
 using Nethereum.Web3;
-
+using Nethereum.JsonRpc.UnityClient;
 
 public class GetLatestBlockVanillaNethereum : MonoBehaviour {
 
@@ -41,11 +41,5 @@ public class GetLatestBlockVanillaNethereum : MonoBehaviour {
         var blockNumber = await web3.Eth.Blocks.GetBlockNumber.SendRequestAsync();
         ResultBlockNumber.text = blockNumber.Value.ToString();
     }
-
    
-    // Update is called once per frame
-    void Update ()
-    {
-        
-    }
 }

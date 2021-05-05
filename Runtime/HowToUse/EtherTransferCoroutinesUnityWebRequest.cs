@@ -69,14 +69,14 @@ public class EtherTransferCoroutinesUnityWebRequest : MonoBehaviour {
 
         TransactionHash = ethTransfer.Result;
         ResultTxnHash.text = TransactionHash;
-        Debug.Log("Transfer transaction hash:" + TransactionHash);
+        //Debug.Log("Transfer transaction hash:" + TransactionHash);
 
         //create a poll to get the receipt when mined
         var transactionReceiptPolling = new TransactionReceiptPollingRequest(Url);
         //checking every 2 seconds for the receipt
         yield return transactionReceiptPolling.PollForReceipt(TransactionHash, 2);
         
-        Debug.Log("Transaction mined");
+        //Debug.Log("Transaction mined");
 
         var balanceRequest = new EthGetBalanceUnityRequest(Url);
         yield return balanceRequest.SendRequest(receivingAddress, BlockParameter.CreateLatest());
@@ -84,7 +84,7 @@ public class EtherTransferCoroutinesUnityWebRequest : MonoBehaviour {
         BalanceAddressTo = UnitConversion.Convert.FromWei(balanceRequest.Result.Value);
         ResultBalanceAddressTo.text = BalanceAddressTo.ToString();
 
-        Debug.Log("Balance of account:" + BalanceAddressTo);
+        //Debug.Log("Balance of account:" + BalanceAddressTo);
     }
 
 
