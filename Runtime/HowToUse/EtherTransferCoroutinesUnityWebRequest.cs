@@ -16,7 +16,7 @@ using UnityEngine.UI;
 public class EtherTransferCoroutinesUnityWebRequest : MonoBehaviour {
 
     public string Url = "http://localhost:8545";
-    public string PrivateKey = "0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7";
+    public PrivateRequestKeyAPIDefault PrivateKey ;
     public string AddressTo = "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe";
     public decimal Amount = 1.1m;
     public decimal GasPriceGwei = 2;
@@ -35,7 +35,7 @@ public class EtherTransferCoroutinesUnityWebRequest : MonoBehaviour {
     void Start () {
 
         InputUrl.text = Url;
-        InputPrivateKey.text = PrivateKey;
+        InputPrivateKey.text = PrivateKey.GetKey();
         InputAddressTo.text = AddressTo;
         InputAmount.text = Amount.ToString();
 
@@ -50,16 +50,17 @@ public class EtherTransferCoroutinesUnityWebRequest : MonoBehaviour {
     public IEnumerator TransferEther()
     {
         Url = InputUrl.text;
-        PrivateKey = InputPrivateKey.text;
+        
         AddressTo = InputAddressTo.text;
         Amount = System.Decimal.Parse(InputAmount.text);
          
 
         //initialising the transaction request sender
-        var ethTransfer = new EthTransferUnityRequest(Url, PrivateKey);
+        var ethTransfer = new EthTransferUnityRequest(Url, PrivateKey.GetKey());
 
         var receivingAddress = AddressTo;
         yield return ethTransfer.TransferEther(receivingAddress, Amount, GasPriceGwei);
+
 
         if (ethTransfer.Exception != null)
         {
