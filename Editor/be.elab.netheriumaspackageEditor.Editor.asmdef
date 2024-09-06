@@ -1,7 +1,7 @@
 
 {                                                                   
-            "name": "be.eloistree.netheriumaspackageEditor",          
-    "references": ["be.eloistree.netheriumaspackage"
+            "name": "be.elab.netheriumaspackageEditor",          
+    "references": ["be.elab.netheriumaspackage"
 ],                                                              
     "optionalUnityReferences": [],                                  
     "includePlatforms": [                                           
